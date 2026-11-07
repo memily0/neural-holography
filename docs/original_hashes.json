@@ -1,0 +1,20 @@
+{
+  "Nuclear_Competition_Final.ipynb": "4429f522e005f57392aa9ffec369fb421ae77cdbfb7b0ee26593ca73f6cde139",
+  "Nuclear_Holography_Research_v4.ipynb": "9303b7333efea825c67cc0a65e1862d5bdd7e38ff5d41a97589e65eec60d5e41",
+  "Nuclear_Holography_RTX3080.ipynb": "3a25b41e6ea00af4d8a55fa3d8347b4f376345ad9833cd48f6aeb07013543300",
+  "Nuclear_Holography_TeamPhysics_v2.ipynb": "8deba852229a9dd2c20e777cc510de870b573160fa815e8d2216b7ba66fd1315",
+  "Nuclear_SMP_Pretrained_PhysicsSeed_Fresnel.ipynb": "2a9147b17cc16ba2f4be33f5de87a334f1f5bb3a2ebcb37e9461d7794b434907",
+  "checkpoints\\best.pt": "91c3d8ea0085ac2b0a7493ec1875560a519814f9f2dca3c3ac04c4db7d95e082",
+  "checkpoints\\best_hybrid_v6.pt": "2df939892f77173e399a807157a9de1b79d6d9ce6bdfaf7f651353aa4b22b511",
+  "checkpoints\\best_neural_feedback.pt": "e8a9debe03793467d3289c7cb90cbba5a56eec59516b94bf5d8cd433d6f1afca",
+  "checkpoints\\best_smp_competition.pt": "428d5ad3e0e16bf965b2a2dba53465ba73ad448acaae3f18b41407db8f230846",
+  "checkpoints\\best_smp_physics_v7.pt": "8ad0e697314f26acb72ca57976d46d4a6f3d62b935ad424e87646b7dc566847f",
+  "checkpoints\\best_smp_unetplusplus.pt": "633c248eadfe53173b331f6975b58ec7d8887f7bf315d03b6d3f8768cf89c13a",
+  "checkpoints\\best_team.pt": "8ede1dd82cbaf69e2f755de7601544d3ff0834027b842d5d113b54eca1299b68",
+  "checkpoints\\last.pt": "68ab2a74ff9c3066d5a142e61e2fa88a6506d172728925a5b70fe6279321d21a",
+  "checkpoints\\last_smp_competition.pt": "6d76fb021e6241426c7f994f66f9658a324ac165ca3083243863a15d75c8c167",
+  "checkpoints\\last_smp_physics_v7.pt": "f97480815c5b994c20a33038e3cf932de81eb9df99866e5d8b5ee681bbf3fb76",
+  "checkpoints\\last_team.pt": "bd3f9191dc7c91295a1ccf63eabd4ce2441553ecc73bde548799206c9ceddb98",
+  "src\\physics\\fresnel.py": "a98febbb16a9a2e03cbef1f8456dad56cfb92fbec59b4f8049fa6a29db9d7b09",
+  "CODEX_READY.json": "28daa0d3101934c696069ee58ee2b058f63c1aabbb66380c9bec80e86b221b9c"
+}

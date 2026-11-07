@@ -1,0 +1,57 @@
+{
+  "notebook": "Nuclear_Competition_Final.ipynb",
+  "notebook_sha256": "4429f522e005f57392aa9ffec369fb421ae77cdbfb7b0ee26593ca73f6cde139",
+  "checkpoint_source": "checkpoints\\best_smp_competition.pt",
+  "checkpoint_sha256": "428d5ad3e0e16bf965b2a2dba53465ba73ad448acaae3f18b41407db8f230846",
+  "checkpoint_metadata": {
+    "architecture": "smp.UnetPlusPlus/resnet34/seed8",
+    "epoch": 6,
+    "metrics": {
+      "val_loss": 0.7813868727535009,
+      "cc": 0.5180287552066147,
+      "local": 0.2332921929191798,
+      "global": 0.34347416390664876,
+      "score_priority": 0.31778499812353406,
+      "score_v7": 0.35176775290165097,
+      "per_plane_cc": [
+        0.5263075749389827,
+        0.5350905505474657,
+        0.5140223309863359,
+        0.4966945495689288
+      ],
+      "per_plane_local": [
+        0.248919436824508,
+        0.2467001008335501,
+        0.22778566216584295,
+        0.20976356824394315
+      ],
+      "per_plane_global": [
+        0.3506293527316302,
+        0.3413030698429793,
+        0.3382251791190356,
+        0.34373906208202243
+      ],
+      "quartets": 128
+    },
+    "origin": "SSIM fine-tune from V7",
+    "physics_sha256": "a98febbb16a9a2e03cbef1f8456dad56cfb92fbec59b4f8049fa6a29db9d7b09",
+    "refinement_steps": 0,
+    "direct_neural_inference": true
+  },
+  "team_fresnel_sha256": "a98febbb16a9a2e03cbef1f8456dad56cfb92fbec59b4f8049fa6a29db9d7b09",
+  "fixture_sha256": "751bb8599c12c2778c220144552787c66deb833c1b5d18befd10739626207ce8",
+  "reference_device": "cpu",
+  "reference_threads": 4,
+  "reference_seed": 20261108,
+  "versions": {
+    "torch": "2.13.0+cu126",
+    "torchvision": "0.28.0+cu126",
+    "segmentation-models-pytorch": "0.6.0",
+    "timm": "1.0.26",
+    "numpy": "2.5.3",
+    "pillow": "12.1.1",
+    "huggingface-hub": "2.2.0",
+    "safetensors": "0.8.0"
+  },
+  "examples_source": "outputs/final_submission/target_1.png ... target_4.png, public test-split demo, not organizer data"
+}

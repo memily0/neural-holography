@@ -1,0 +1,11 @@
+*
+!Dockerfile
+!requirements.txt
+!src/
+!src/**
+!scripts/
+!scripts/**
+!checkpoints/
+!checkpoints/best_model.pt
+**/__pycache__/
+**/*.pyc

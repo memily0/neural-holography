@@ -1,0 +1,50 @@
+{
+  "tests_windows_original_environment": {
+    "count": 25,
+    "failures": 0,
+    "errors": 0,
+    "log": "tests-windows.log"
+  },
+  "numerical_reference_errors": {
+    "fresnel_0.0241_max_abs": 0.0,
+    "fresnel_0.0253_max_abs": 0.0,
+    "fresnel_0.0265_max_abs": 0.0,
+    "fresnel_0.0277_max_abs": 0.0,
+    "physics_seed_max_abs": 0.0,
+    "neural_complex_phase_max_abs": 0.0
+  },
+  "original_files_checked": 18,
+  "changed_original_files": [],
+  "docker": {
+    "build_exit_code": 1,
+    "run_exit_code": 1,
+    "status": "blocked_before_build",
+    "reason": "Docker WSL backend: HCS_E_HYPERV_NOT_INSTALLED; WSL_E_DISTRO_NOT_FOUND",
+    "runtime_verified": false
+  },
+  "linux_cpu_wheel_resolution": "passed",
+  "review": {
+    "critical": 0,
+    "important": 0,
+    "minor": "Implementation ledger updated after review"
+  },
+  "tests_cpu_only_clean_environment": {
+    "count": 25,
+    "failures": 0,
+    "errors": 0,
+    "pip_check": "passed",
+    "torch": "2.13.0+cpu",
+    "cuda_available": false,
+    "log": "tests-cpu-only.log"
+  },
+  "pinned_dependencies_installed": {
+    "torch": "2.13.0+cpu",
+    "torchvision": "0.28.0+cpu",
+    "segmentation-models-pytorch": "0.6.0",
+    "timm": "1.0.26",
+    "numpy": "2.5.3",
+    "pillow": "12.1.1",
+    "huggingface-hub": "2.2.0",
+    "safetensors": "0.8.0"
+  }
+}

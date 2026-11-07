@@ -1,0 +1,30 @@
+test_python_contains_only_code (test_contract.ContractTests.test_python_contains_only_code) ... ok
+test_required_modules_exist (test_contract.ContractTests.test_required_modules_exist) ... ok
+test_benchmark_cli_evaluates_saved_png (test_inference.InferenceTests.test_benchmark_cli_evaluates_saved_png) ... ok
+test_black_targets_are_supported (test_inference.InferenceTests.test_black_targets_are_supported) ... ok
+test_cli_from_another_directory (test_inference.InferenceTests.test_cli_from_another_directory) ... ok
+test_cli_works_with_network_connections_blocked (test_inference.InferenceTests.test_cli_works_with_network_connections_blocked) ... ok
+test_cpu_repeatability_and_saved_reconstruction (test_inference.InferenceTests.test_cpu_repeatability_and_saved_reconstruction) ... ok
+test_cpu_selection (test_inference.InferenceTests.test_cpu_selection) ... ok
+test_input_cannot_be_overwritten (test_inference.InferenceTests.test_input_cannot_be_overwritten) ... ok
+test_input_normalization (test_inference.InferenceTests.test_input_normalization) ... ok
+test_phase_byte_decoding_and_round_trip (test_inference.InferenceTests.test_phase_byte_decoding_and_round_trip) ... ok
+test_rejects_invalid_inputs (test_inference.InferenceTests.test_rejects_invalid_inputs) ... ok
+test_identity_and_constant_convention (test_metrics.MetricTests.test_identity_and_constant_convention) ... ok
+test_matches_notebook (test_metrics.MetricTests.test_matches_notebook) ... ok
+test_actual_checkpoint_architecture (test_model.ModelTests.test_actual_checkpoint_architecture) ... ok
+test_invalid_targets_fail (test_model.ModelTests.test_invalid_targets_fail) ... ok
+test_missing_and_incompatible_checkpoint_fail (test_model.ModelTests.test_missing_and_incompatible_checkpoint_fail) ... ok
+test_neural_phase_matches_notebook (test_model.ModelTests.test_neural_phase_matches_notebook) ... ok
+test_constants (test_physics.PhysicsTests.test_constants) ... ok
+test_field_matches_notebook_at_every_plane (test_physics.PhysicsTests.test_field_matches_notebook_at_every_plane) ... ok
+test_fresnel_retains_autograd (test_physics.PhysicsTests.test_fresnel_retains_autograd) ... ok
+test_invalid_phase_is_rejected (test_physics.PhysicsTests.test_invalid_phase_is_rejected) ... ok
+test_reconstruction_is_normalized_amplitude (test_physics.PhysicsTests.test_reconstruction_is_normalized_amplitude) ... ok
+test_seed_matches_notebook (test_physics.PhysicsTests.test_seed_matches_notebook) ... ok
+test_zero_seed_and_normalization_remain_finite (test_physics.PhysicsTests.test_zero_seed_and_normalization_remain_finite) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 26.021s
+
+OK
