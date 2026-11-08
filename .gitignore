@@ -216,5 +216,24 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
+# Local datasets
+/data/cifar-10-python.tar.gz
+/data/cifar-10-batches-py/
+/data/MNIST/
+/data/FashionMNIST/
+
+# Experiment environments and generated artifacts
+.venv-gpu/
+.venv*/
+/data/cache/
+/outputs/*
+!/outputs/.gitkeep
+/.chart-data-*/
+
+# Original local attachments and private task discussion
+/F_083 (1).ipynb
+/Хакатон_задача_q2.docx
+/AI фотоника.pdf
+
 # Streamlit
 .streamlit/secrets.toml

@@ -1,0 +1,15 @@
+# Send only code, the inference requirements, and released model artifacts.
+**
+!Dockerfile
+!.dockerignore
+!requirements-runtime.txt
+!src/
+!src/**
+!models/
+!models/**
+
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+models/**/optimizer*
+models/**/last.pt

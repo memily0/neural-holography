@@ -1,0 +1,123 @@
+{
+  "format_version": 1,
+  "exported_utc": "2026-11-08T03:30:59.587052+00:00",
+  "checkpoint": "solution.pt",
+  "protocol": "fresnel_png_v2_peak",
+  "selected_step": 5000,
+  "source_checkpoint_sha256": "ccb7f7cddccfd31ab85830f5ee20744d56389d31bccc825e9306463345ae361a",
+  "provenance": {
+    "source_checkpoint_sha256": "ccb7f7cddccfd31ab85830f5ee20744d56389d31bccc825e9306463345ae361a",
+    "source_checkpoint_name": "step_005000.pt",
+    "source_run": "r72_spatial_frequency_control",
+    "selected_step": 5000
+  },
+  "config": {
+    "model": "transport_spatial_complex",
+    "width": 16,
+    "phase_head": "circular",
+    "position": "xy",
+    "protocol": "fresnel_png_v2_peak",
+    "amplitude_scales": [
+      0.4411385953426361,
+      0.4631040692329407,
+      0.4850694537162781,
+      0.5070348381996155
+    ]
+  },
+  "model_summary": {
+    "class": "TransportPhaseGenerator",
+    "parameters": 205188,
+    "trainable_parameters": 205188,
+    "state_tensors": 56,
+    "state_dtypes": [
+      "torch.float32"
+    ],
+    "input_shape": [
+      1,
+      4,
+      128,
+      128
+    ],
+    "output_shape": [
+      1,
+      1,
+      128,
+      128
+    ],
+    "phase_range_radians": [
+      -3.141592653589793,
+      3.141592653589793
+    ]
+  },
+  "physics": {
+    "size": 128,
+    "wavelength_m": 5.32e-07,
+    "pixel_pitch_m": 1e-05,
+    "distances_m": [
+      0.0241,
+      0.0253,
+      0.0265,
+      0.0277
+    ],
+    "phase_png": "uint8 round((phase + pi) * 255 / (2 * pi)); 0=-pi, 255=pi",
+    "reconstruction": "Amplitude abs(E); evaluated after saved phase and reconstruction PNG quantization"
+  },
+  "training_hyperparameters": {
+    "seed": 42,
+    "data_seed": 42,
+    "steps": 5000,
+    "batch_size": 16,
+    "lr": 5e-05,
+    "ssim_weight": 1.0,
+    "pearson_weight": 0.5,
+    "rank_weight": 0.0,
+    "rank_margin": 0.2,
+    "synthetic_steps": 0,
+    "lr_schedule": "cosine",
+    "warmup_steps": 200,
+    "lr_min_ratio": 0.1,
+    "cosine_weight": 0.0,
+    "balanced_weight": 2.0,
+    "concentration_weight": 0.1,
+    "latent_weight": 0.0,
+    "depth_frequency_weight": 0.0,
+    "worst_weight": 0.0,
+    "quantize_train": false,
+    "amp": false,
+    "fixed_train_quartets": 0,
+    "detach_peak_gradient": false,
+    "resume_mode": "weights_only_new_optimizer",
+    "resume_checkpoint_sha256": "6b4ddb04aa47b83b84bce0105f0ad5957ec7e5a3e246123ee3c9aae2e68f2cc4"
+  },
+  "export_environment": {
+    "python": "3.11.18",
+    "torch": "2.6.0+cpu",
+    "device": "cpu"
+  },
+  "source_sha256": {
+    "scripts/export_solution.py": "5525c41397c2be0fa1a6fd04e7e09ad859820c5bc85c602341b18d3b3386cb9d",
+    "src/latent_losses.py": "ad5e7564c4b84361b4cd19145e44255bbd9b970cce6a7764c3c39c1fbdcdb367",
+    "src/metrics.py": "70a0e4df536c79b5c0b9fb7bfb2595d47c51e63b244dfeda1a5f0723a7d96798",
+    "src/models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/models/complex_decoder.py": "2e2486eb3d60f05de854029862f477171698aad74ea4aad5acf2622db82f49dc",
+    "src/models/full_spectral.py": "d31a344d164b6146aa1c6fffbd3ec006a13973e182cd1da4c8a2314c1f18278f",
+    "src/models/networks.py": "6b1616466b33883948990cb3d4a525fb01e6c181853f550693203292790b18d6",
+    "src/models/phase_bias.py": "cc86cf09a7394a3ff76bcb71861f1d181c5928e2d5f3fd76a10815731519e8ad",
+    "src/models/spectral.py": "ff794caf649305ca23710cbff5b33bb8d3af12d0f70a65ffd92b34044668a28b",
+    "src/models/target_envelope.py": "252c6bbc6f0d0581cdc86a6541f7c20838f866335d0af90a8fb4bc3f11af2ae6",
+    "src/models/target_global.py": "4d1f41e5d4d1f96f17ab6d31cfbaa92387e7d01776703e0ec0b0359d9bd103ca",
+    "src/models/transport.py": "1c10d7203dddc4b767455c0ef6dcf91391234409329f86f1c87a9165304665f5",
+    "src/physics/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/physics/fresnel.py": "c7bfa47bd89af6ec167b72b27b3cdfeb6745f60738bd802feeb2ee921e561326",
+    "src/predict.py": "89345f0387fdc2e63c0ceeaf9fe48ab4bc6bdf2d757d0563c6020b6063c55fdc",
+    "src/protocol.py": "1e7f2f8f52b3067c1c2e21af4a3794a1e4e51adb955aa92b23b8f57c88576e75"
+  },
+  "validation": {
+    "strict_model_state_load": true,
+    "finite_forward": true,
+    "weights_only_load": true
+  },
+  "optimizer_included": false,
+  "checkpoint_sha256": "803a8039f0173d6b85db10c108a8ea91eaeacc5e71e6ecb5604e0ee7e91918b5",
+  "checkpoint_bytes": 1495134
+}

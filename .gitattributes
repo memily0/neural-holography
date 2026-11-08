@@ -1,0 +1,16 @@
+# Keep source/provenance bytes stable across Windows and Linux checkouts.
+* text=auto eol=lf
+*.png binary
+*.pt binary
+*.npz binary
+*.pptx binary
+*.pdf binary
+*.svg -text
+*.csv -text
+# Generated manifests/results may be hashed as exact bytes; preserve them.
+*.json -text
+*.jsonl -text
+
+# Archived evaluator snapshots must retain their original SHA-256 bytes.
+experiments/final/**/source/** -text
+experiments/final/*tests.txt -text

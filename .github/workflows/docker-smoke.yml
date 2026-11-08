@@ -1,0 +1,112 @@
+name: Docker CPU smoke test
+
+"on":
+  push:
+    branches:
+      - dzprht/neural-holography-20261108
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docker-smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  cpu-inference:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out the submitted revision
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Check released inputs and weights
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ci-results
+          test -s models/solution.pt
+          for set in 1 2 3 4 5; do
+            for number in 1 2 3 4; do
+              test -s "examples/input_set${set}/image${number}.png"
+            done
+          done
+
+      - name: Build the CPU container
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker build --platform linux/amd64 --progress plain \
+            --tag neural-holography:smoke . 2>&1 | tee ci-results/docker-build.log
+
+      - name: Run all dataset-independent CPU tests inside the container
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker run --rm --network none --read-only \
+            --tmpfs /tmp:rw,nosuid,size=128m \
+            --mount "type=bind,source=$PWD/tests,target=/app/tests,readonly" \
+            --mount "type=bind,source=$PWD/scripts,target=/app/scripts,readonly" \
+            --entrypoint python neural-holography:smoke \
+            -m scripts.run_offline_tests 2>&1 | tee ci-results/optical-tests.log
+
+      - name: Run inference with networking disabled
+        shell: bash
+        run: |
+          set -euo pipefail
+          for set in 1 2 3 4 5; do
+            docker run --rm --network none --read-only \
+              --tmpfs /tmp:rw,nosuid,size=128m \
+              --mount "type=bind,source=$PWD/examples/input_set${set},target=/input,readonly" \
+              --mount "type=bind,source=$PWD/ci-results,target=/output" \
+              neural-holography:smoke \
+              --inputs /input/image1.png /input/image2.png /input/image3.png /input/image4.png \
+              --output "/output/prediction_set${set}" 2>&1 | tee "ci-results/predict_set${set}.log"
+          done
+
+      - name: Validate all 25 PNG outputs and five metric reports
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker run --rm -i --network none --read-only \
+            --tmpfs /tmp:rw,nosuid,size=128m \
+            --mount "type=bind,source=$PWD/ci-results,target=/output,readonly" \
+            --entrypoint python neural-holography:smoke - <<'PY' | tee ci-results/validation.log
+          import json
+          import math
+          from pathlib import Path
+          from PIL import Image
+
+          names = ['phase.png'] + [f'reconstruction_{i}.png' for i in range(1, 5)]
+          sets = []
+          for number in range(1, 6):
+              root = Path('/output') / f'prediction_set{number}'
+              for name in names:
+                  with Image.open(root / name) as image:
+                      image.load()
+                      assert image.format == 'PNG', (number, name, image.format)
+                      assert image.mode == 'L', (number, name, image.mode)
+                      assert image.size == (128, 128), (number, name, image.size)
+              metrics = json.loads((root / 'metrics.json').read_text())
+              assert metrics['phase_png'] == 'phase.png'
+              assert metrics['invalid_pearson_count'] == 0
+              assert len(metrics['per_plane']) == 4
+              for scores in [metrics['mean']] + metrics['per_plane']:
+                  for key in ('ssim', 'pearson', 'global_ssim', 'mse'):
+                      value = scores[key]
+                      assert isinstance(value, (int, float)) and math.isfinite(value), (number, key, value)
+              sets.append({'set': number, 'directory': root.name, 'protocol': metrics['protocol'], 'images': names, 'mean': metrics['mean']})
+          print(json.dumps({'status': 'PASS', 'output_images': 25, 'sets': sets}, allow_nan=False))
+          PY
+
+      - name: Save container logs and reconstructed images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-smoke-${{ github.run_id }}
+          path: ci-results/
+          if-no-files-found: warn
+          retention-days: 7
